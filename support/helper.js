@@ -21,6 +21,16 @@ class Helper {
     getTextInputValue(element) {
         return element.getAttribute('value');
     }
+
+    focusAndClick(element) {
+        return browser.actions().mouseMove(element).perform().
+            then(() => {
+                return browser.actions().mouseDown(element).perform().
+                then(() => {
+                    return browser.actions().mouseUp(element).perform();
+                })
+            })
+    }
 }
 
 module.exports = Helper;

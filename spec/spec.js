@@ -1,6 +1,7 @@
 browser.ignoreSynchronization = true;
 const ProductPage = require('./../po/productPage'),
     WishlistPage = require('./../po/wishlistPage');
+    HomePage = require('./../po/homePage');
     Helper = require('./../support/helper.js');
 
 describe('Add and remove item from wishlist', () => {
@@ -35,5 +36,24 @@ describe('Add and remove item from wishlist', () => {
     it('should remove item from wishlist', () => {
         wishlistPage.removeFromWishlist();
         expect(wishlistPage.wishlistHeader.getText()).to.eventually.be.equal('Wishlist is empty');
+    })
+});
+
+describe ('Check Wiggle instagram', () => {
+    let homePage, helper;
+
+    beforeAll(() => {
+        homePage = new HomePage();
+        helper = new Helper();
+        return homePage.visit();
+    });
+
+    it('should scroll to the page bottom', () => {
+        homePage.scrollToBottom();
+    });
+
+    it('should go to Wiggle Instagram account', () => {
+        helper.focusAndClick(homePage.footer.instagramLink);
+        expect(homePage.checkPageURL('https://www.instagram.com/wiggle_sport/')).to.eventually.be.true;
     })
 });

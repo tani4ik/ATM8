@@ -21,9 +21,23 @@ class BasePage {
         });
     }
 
+    checkPageURL(pageURL) {
+        return browser.executeScript('return document.URL').then((url) => {
+            return url === pageURL;
+        })
+    }
+
     getPageTitle() {
         return browser.getTitle();
     }
+
+    scrollToBottom() {
+        return browser.executeScript('window.scrollTo(0, document.body.scrollHeight)').
+            then(() => {
+                return browser.sleep(3000);
+            }) 
+    }
+
 }
 
 module.exports = BasePage;
