@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "demo project",
   "scripts": {
-    "protractor": "protractor conf.js"
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor configuration/conf.js"
   },
   "author": "",
   "license": "ISC",
