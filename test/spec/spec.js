@@ -1,4 +1,3 @@
-browser.ignoreSynchronization = true;
 const ProductPage = require('./../po/productPage'),
     WishlistPage = require('./../po/wishlistPage');
     HomePage = require('./../po/homePage');

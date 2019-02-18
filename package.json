@@ -14,5 +14,8 @@
     "chai-as-promised": "^7.1.1",
     "jasmine-core": "^2.4.1",
     "protractor": "^5.4.2"
+  },
+  "devDependencies": {
+    "protractor-beautiful-reporter": "^1.2.7"
   }
 }
