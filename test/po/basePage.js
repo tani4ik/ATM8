@@ -38,6 +38,22 @@ class BasePage {
             }) 
     }
 
+    changeCurrencyToEuro() {
+        return this.header.languageAndCountrySelector.click()
+        .then(() => {
+            return this.helper.waitForVisibilityOf(this.header.selectCurrency)
+            .then(() => {
+                return this.header.selectCurrency.click()
+                .then(() => {
+                    return element(by.css('option[value=EUR]')).click()
+                        .then(() => {
+                            return this.header.updateLanguageAndCountry.click();
+                        })
+                })
+            })
+        })
+    }
+
 }
 
 module.exports = BasePage;

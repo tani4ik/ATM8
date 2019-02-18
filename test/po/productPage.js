@@ -8,6 +8,7 @@ class ProductPage extends BasePage {
         this.colourOption = element.all(by.css('.bem-sku-selector__option-group-item'));
         this.addToWishlist = element(by.css('.bem-sku-selector__wishlist:not(.hide)'));
         this.itemPrice = element(by.css('.js-unit-price'));
+        this.addToBasket = element(by.css('#quickBuyButton'));
     }
 
     selectColourAndSizeOptions() {
@@ -19,6 +20,10 @@ class ProductPage extends BasePage {
 
     addItemToWishlist() {
         return this.addToWishlist.click();
+    }
+
+    addItemToBasket() {
+        return this.addToBasket.click();
     }
 
 }
